@@ -88,4 +88,16 @@ class Utils
             return false;
         }
     }
+
+    public static function redirect($url)
+    {
+        echo '<script>location.href="' . $url . '"</script>';
+    }
+
+    public static function logout($cookieName)
+    {
+        setcookie($cookieName, 'true', time() - 1, '/');
+        session_destroy();
+        header('Location: ' . INCLUDE_PATH);
+    }
 }

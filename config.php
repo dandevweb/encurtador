@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 date_default_timezone_set('America/Sao_Paulo');
 $autoload = function ($class) {
     if ($class == 'Email') {
@@ -20,6 +21,7 @@ define('PASSWORD_DB', '');
 define('INCLUDE_PATH', 'http://localhost/encurtador/');
 $url = explode('//', INCLUDE_PATH)[1];
 define('INCLUDE_PATH_SHORT', $url);
+define('COOKIE_NAME', 'remember_encurtador');
 
 function recoverPost($post)
 {

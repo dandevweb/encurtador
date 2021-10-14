@@ -1,5 +1,9 @@
 <?php
 
+if (isset($_GET['logout'])) {
+    Utils::logout(COOKIE_NAME);
+}
+
 $ip = $_SERVER["REMOTE_ADDR"];
 $ip = '189.73.71.160';
 
@@ -33,14 +37,14 @@ $ip = '189.73.71.160';
               <a class="nav-link" href="<?= INCLUDE_PATH ?>">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="<?= INCLUDE_PATH ?>login">Minha conta</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="<?= INCLUDE_PATH ?>cadastro">Criar conta</a>
           </li>
         </ul>
         <span class="navbar-text">
-          <a class="nav-link" href="<?= INCLUDE_PATH ?>login">Minha conta</a>
+          <a class="nav-link" href="<?= INCLUDE_PATH ?>?logout">Sair</a>
         </span>
     </div>
     </nav>
