@@ -157,4 +157,14 @@ i.fa-copy {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+
+  button.reset-button {
+      background-color: #72a872;
+      border: 0;
+  }
+
+  button.reset-button:hover {
+      background-color: #008000;
+      border: 0;
+  }
   
