@@ -57,7 +57,7 @@ if (isset($_POST['action'])) {
                 } else {
                     $exists = '';
                     $datetime = date('Y-m-d');
-                    $insert = Query::insert('translate', 'null, ?, ?, ?, ?', array($old_url, $new_url, $datetime, $ip));
+                    $insert = Query::insert('translate', 'null, ?, ?, ?, ?, ?', array($old_url, $new_url, $datetime, $ip, 0));
                 }
             } else {
                 $new_url = INCLUDE_PATH . $id;
@@ -75,7 +75,7 @@ if (isset($_POST['action'])) {
                     }
                 }
                 $datetime = date('Y-m-d');
-                $insert = Query::insert('translate', 'null, ?, ?, ?, ?', array($old_url, $new_url, $datetime, $ip));
+                $insert = Query::insert('translate', 'null, ?, ?, ?, ?, ?', array($old_url, $new_url, $datetime, $ip, 0));
             }
         }
     }

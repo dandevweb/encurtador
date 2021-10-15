@@ -37,11 +37,11 @@ $ip = '189.73.71.160';
               <a class="nav-link" href="<?= INCLUDE_PATH ?>">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="<?= INCLUDE_PATH ?>login">Minha conta</a>
+          <a class="nav-link" href="<?= INCLUDE_PATH ?>url">Minha Url</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
               <a class="nav-link" href="<?= INCLUDE_PATH ?>cadastro">Criar conta</a>
-          </li>
+          </li> -->
         </ul>
         <span class="navbar-text">
           <a class="nav-link" href="<?= INCLUDE_PATH ?>?logout">Sair</a>

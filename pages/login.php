@@ -1,23 +1,7 @@
 <?php
 
-if (isset($_COOKIE[COOKIE_NAME])) {
-    $user = $_COOKIE['user'];
-    $password = $_COOKIE['password'];
-    $userData = Query::selectWhere('login_admin', "user = ?", array($user));
-    if (!empty($userData)) {
-        //Pega a senha criptogafada do banco de dados e verifica se é igual a digitada
-        $passDb = $userData['password'];
-        if (Bcrypt::check($password, $passDb)) {
-            $_SESSION['login'] = true;
-            $_SESSION['user'] = $user;
-            $_SESSION['password'] = $password;
-            $_SESSION['user_id'] = $userData['id'];
-            $_SESSION['cargo'] = 2;
-            $_SESSION['name'] = $userData['name'];
-            $_SESSION['image'] = $userData['image'];
-            Utils::redirect(INCLUDE_PATH);
-        }
-    }
+if (isset($_SESSION['login'])) {
+    Utils::redirect(INCLUDE_PATH);
 }
 
 include('partials/header.php');
@@ -36,18 +20,8 @@ include('partials/header.php');
             $passDb = $userData['password'];
             if (Bcrypt::check($password, $passDb)) {
                 //Logamos com sucesso.
-                $_SESSION['login'] = true;
-                $_SESSION['user'] = $user;
-                $_SESSION['password'] = $password;
-                $_SESSION['user_id'] = $userData['id'];
-                $_SESSION['name'] = $userData['name'];
-                $_SESSION['image'] = $userData['image'];
-                if (isset($_POST[COOKIE_NAME])) {
-                    setcookie(COOKIE_NAME, true, time() + (60 * 60 * 24 * 7), '/');
-                    setcookie('user', $user, time() + (60 * 60 * 24 * 7), '/');
-                    setcookie('password', $password, time() + (60 * 60 * 24 * 7), '/');
-                }
-                Utils::redirect(INCLUDE_PATH);
+                $_SESSION['login'] = $user;
+                Utils::redirect(INCLUDE_PATH . 'logado');
             } else {
                 //Falhou
                 echo '<div class="erro-box"><i class="fa fa-times"></i> Usuário ou senha incorretos!</div>';

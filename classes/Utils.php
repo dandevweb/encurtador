@@ -9,11 +9,18 @@ class Utils
             if (file_exists('pages/' . $url . '.php')) {
                 include('pages/' . $url . '.php');
             } else {
-                include('pages/404.php');
+                $url = INCLUDE_PATH . $url;
+                include('pages/home.php');
             }
         } else {
             include('pages/converter_form.php');
         }
+    }
+
+    public static function updateClicks($shortLink)
+    {
+        $clickSelect = Query::selectWhere('translate', 'new_link = ?', array($shortLink))['clicks'];
+        Query::update('translate', 'clicks = ?', 'new_link = ?', array($clickSelect + 1, $shortLink));
     }
 
     public static function countVisitsBrazil($ip)
