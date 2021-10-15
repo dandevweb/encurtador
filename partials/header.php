@@ -6,6 +6,11 @@ if (isset($_GET['logout'])) {
 
 $ip = $_SERVER["REMOTE_ADDR"];
 $ip = '189.73.71.160';
+$img = INCLUDE_PATH . 'assets/img/dog.png';
+if (isset($_POST['action'])) {
+    $img = INCLUDE_PATH . 'assets/img/dog-puppy.png';
+}
+
 
 ?>
 <!doctype html>
@@ -54,7 +59,7 @@ $ip = '189.73.71.160';
         <div class="row form">
             <div class="col-md-4" style="padding: 0;">
                 <div class="container-img">
-                    <img src="<?= INCLUDE_PATH?>assets/img/dog.png" alt="Dog Image">
+                    <img src="<?= $img ?>" alt="Dog Image">
                 </div>
             </div>
       

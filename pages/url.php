@@ -7,7 +7,7 @@ include('partials/header.php');
 <div class="col-md-8">
     <h2 class="text-center m-5 text-black-50">Contador de cliques</h2>
     <p class="text-center  text-black-50">Aqui você pode verificar a quantidade de cliques que sua URL recebeu.</p>
-    <form action="" method="post">
+    <form action_count="" method="post">
             <div class="form-group">
                 <label for=""></label>
                 <input type="text" name="short_url" id="" class="form-control" placeholder="Cole sua URL curta..." aria-describedby="helpId" required>
@@ -17,11 +17,11 @@ include('partials/header.php');
                     <span><?= INCLUDE_PATH_SHORT ?></span><input  type="text" name="url_personal" id="" class="form-control" placeholder="URL personalizada..." aria-describedby="helpId">
                 </div>
             </div>
-            <button type="submit" class="btn btn-success mb-3" name="action">Verificar</button>
+            <button type="submit" class="btn btn-success mb-3" name="action_count">Verificar</button>
         </form>
         
         <?php
-        if (isset($_POST['action'])) {
+        if (isset($_POST['action_count'])) {
             $url = $_POST['short_url'];
             $selectUrl = Query::selectWhere('translate', 'new_link = ?', array($url));
             $clicks = $selectUrl['clicks'];

@@ -34,6 +34,7 @@ if (isset($_POST['action'])) {
 
     if ($count >= 3) {
         echo '<script>alert("Você já encurtou 3 URLs hoje. Tente novamente amanhã!")</script>';
+        Utils::redirect(INCLUDE_PATH);
     } else {
         if (empty($_POST['url_converter'])) {
             echo '<script>alert("A URL não pode ser vazia!")</script>';
