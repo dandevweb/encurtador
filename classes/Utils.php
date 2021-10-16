@@ -101,10 +101,10 @@ class Utils
         echo '<script>location.href="' . $url . '"</script>';
     }
 
-    public static function logout($cookieName)
+    public static function logout()
     {
-        setcookie($cookieName, 'true', time() - 1, '/');
+        $_SESSION['login'] = false;
         session_destroy();
-        header('Location: ' . INCLUDE_PATH);
+        self::redirect(INCLUDE_PATH_PANEL);
     }
 }

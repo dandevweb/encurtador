@@ -19,7 +19,9 @@ define('PASSWORD_DB', '');
 
 //Domínio principal
 define('INCLUDE_PATH', 'http://localhost/encurtador/');
+define('INCLUDE_PATH_PANEL', INCLUDE_PATH . 'painel/');
 $url = explode('//', INCLUDE_PATH)[1];
+$urlPanel = explode('/', INCLUDE_PATH_PANEL);
 define('INCLUDE_PATH_SHORT', $url);
 define('COOKIE_NAME', 'remember_encurtador');
 

@@ -1,9 +1,5 @@
 <?php
 
-if (isset($_GET['logout'])) {
-    Utils::logout(COOKIE_NAME);
-}
-
 $ip = $_SERVER["REMOTE_ADDR"];
 $ip = '189.73.71.160';
 $img = INCLUDE_PATH . 'assets/img/dog.png';

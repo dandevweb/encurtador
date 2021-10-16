@@ -59,7 +59,7 @@ if (isset($_POST['action'])) {
       
 
 <div class="col-md-8">
-<h2 class="text-center m-5 text-black-50">Cadastro do Sistema</h2>
+    <h2 class="text-center m-5 text-black-50">Cadastro do Sistema</h2>
     <form method="post" action="<?= INCLUDE_PATH?>cadastro" enctype="multipart/form-data">
     <div class="form-group">
             <label for="inputAddress">Nome Completo *</label>
