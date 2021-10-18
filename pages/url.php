@@ -24,20 +24,24 @@ include('partials/header.php');
         if (isset($_POST['action_count'])) {
             $url = $_POST['short_url'];
             $selectUrl = Query::selectWhere('translate', 'new_link = ?', array($url));
-            $clicks = $selectUrl['clicks'];
-            $oldLink = $selectUrl['link'];
-            $createdAt = $selectUrl['created_at'];
-            $id = $selectUrl['id'];
-            ?>
-        <div class="alert alert-success" role="alert">
-            Seu link <strong><?= substr(strip_tags($oldLink), 0, 20) . '...' ?></strong> foi visitado <strong><?= $clicks ?></strong> vezes desde <strong><?= date('d/m/Y', strtotime($createdAt)) ?></strong>. 
-            <br>
-            <form method="post">
-                <input type="hidden" name="id" value="<?= $id ?>">
-                <button type="submit" class="btn btn-sm btn-danger reset-button mt-3" name="reset">Zerar</button>
-            </form>
-        </div>
-            <?php
+            if (!empty($selectUrl)) {
+                $clicks = $selectUrl['clicks'];
+                $oldLink = $selectUrl['link'];
+                $createdAt = $selectUrl['created_at'];
+                $id = $selectUrl['id'];
+                ?>
+            <div class="alert alert-success" role="alert">
+                Seu link <strong><?= substr(strip_tags($oldLink), 0, 20) . '...' ?></strong> foi visitado <strong><?= $clicks ?></strong> vezes desde <strong><?= date('d/m/Y', strtotime($createdAt)) ?></strong>. 
+                <br>
+                <form method="post">
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <button type="submit" class="btn btn-sm btn-danger reset-button mt-3" name="reset">Zerar</button>
+                </form>
+            </div>
+                <?php
+            } else {
+                Utils::alert('erro', 'URL não encontrada!');
+            }
         } elseif (isset($_POST['reset'])) {
             $id = $_POST['id'];
             Query::update('translate', 'created_at = ?, clicks = ?', 'id = ?', array(date('Y-m-d'), 0, $id));

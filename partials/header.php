@@ -1,9 +1,14 @@
 <?php
 
-$ip = $_SERVER["REMOTE_ADDR"];
-$ip = '189.73.71.160';
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
 $img = INCLUDE_PATH . 'assets/img/dog.png';
-if (isset($_POST['action'])) {
+if (isset($_POST['action']) && !empty($_POST['url_converter'])) {
     $img = INCLUDE_PATH . 'assets/img/dog-puppy.png';
 }
 
@@ -45,7 +50,7 @@ if (isset($_POST['action'])) {
           </li> -->
         </ul>
         <span class="navbar-text">
-          <a class="nav-link" href="<?= INCLUDE_PATH ?>?logout">Sair</a>
+          <a class="nav-link" href="<?= INCLUDE_PATH_PANEL ?>?logout">Sair</a>
         </span>
     </div>
     </nav>

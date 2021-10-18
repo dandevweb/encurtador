@@ -37,7 +37,7 @@ if (isset($_POST['action'])) {
         Utils::redirect(INCLUDE_PATH);
     } else {
         if (empty($_POST['url_converter'])) {
-            echo '<script>alert("A URL não pode ser vazia!")</script>';
+            Utils::alert('erro', "A URL não pode ser vazia!");
         } else {
             $old_url = explode('//', $_POST['url_converter']);
             $urlPersonal = $_POST['url_personal'];
@@ -50,11 +50,8 @@ if (isset($_POST['action'])) {
                 $id = $urlPersonal;
                 $new_url = INCLUDE_PATH . $id;
                 $verify = Query::selectWhere('translate', 'new_link = ?', array($new_url));
-                if ($verify) {
-                    $exists = '
-                    <div class="box-alert alert-danger text-center">
-                        <i class="fa fa-check"></i>URL não disponível!
-                    </div>';
+                if ($verify  || $urlPersonal == 'painel' || $urlPersonal == 'url') {
+                    $exists =  Utils::alert('erro', ' URL não disponível!');
                 } else {
                     $exists = '';
                     $datetime = date('Y-m-d');
@@ -89,7 +86,7 @@ if (isset($_POST['action'])) {
         <form action="" method="post">
             <div class="form-group">
                 <label for=""></label>
-                <input type="text" name="url_converter" id="" class="form-control" placeholder="Cole seu link aqui..." aria-describedby="helpId" required>
+                <input type="text" name="url_converter" id="" class="form-control" placeholder="Cole seu link aqui..." aria-describedby="helpId" >
             </div>
                 <?= $exists ?>
             <div class="text-center">
