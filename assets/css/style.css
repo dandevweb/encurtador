@@ -9,7 +9,7 @@
 }
 
 .container-img img {
-    max-width: 100%;
+    max-width: 90%;
 }
 
 .form{
@@ -20,7 +20,7 @@
     color: #FC9502;
 }
 
-.form-control input {
+.form-control input, a {
     color: #FC9502;
 }
 
@@ -167,4 +167,8 @@ i.fa-copy {
       background-color: #008000;
       border: 0;
   }
-  
+
+  footer {
+    border: 2px solid  #F4B03E;
+    margin: 2px;
+  }
