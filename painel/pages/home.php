@@ -26,4 +26,30 @@
       </div>
     </div>
     <!-- /.row -->
+    <h3 class="text-center m-3">Cadastrados</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Criado em</th>
+          <th scope="col">Curta</th>
+          <th scope="col">Longa</th>
+          <th scope="col">Cliques</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php
+        $allUrls = Query::selectAll('translate');
+        foreach ($allUrls as $translate) {
+            ?>
+        
+        <tr>
+          <th scope="row"><?= date('d/m/Y', strtotime($translate['created_at']))?></th>
+          <td><?= $translate['new_link'] ?></td>
+          <td><?= $translate['link'] ?></td>
+          <td><?= $translate['clicks'] ?></td>
+        </tr>
+        <?php } ?>
+        
+      </tbody>
+    </table>
 </div>

@@ -32,15 +32,15 @@ if (isset($_POST['action'])) {
         $count++;
     }
 
-    if ($count >= 3) {
-        echo '<script>alert("Você já encurtou 3 URLs hoje. Tente novamente amanhã!")</script>';
+    if ($count >= 10) {
+        echo '<script>alert("Você já encurtou 10 URLs hoje. Tente novamente amanhã!")</script>';
         Utils::redirect(INCLUDE_PATH);
     } else {
         if (empty($_POST['url_converter'])) {
             Utils::alert('erro', "A URL não pode ser vazia!");
         } else {
             $old_url = explode('//', $_POST['url_converter']);
-            $urlPersonal = $_POST['url_personal'];
+            $urlPersonal = str_replace(' ', '-', $_POST['url_personal']);
             if (isset($old_url[1])) {
                 $old_url = $old_url[1];
             } else {
