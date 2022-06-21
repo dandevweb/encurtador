@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Counter;
 use App\Models\Translate;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -25,7 +26,6 @@ class HomeController extends Controller
 
     public function converter(Request $request)
     {
-
         $selectCounter = Counter::first();
         $countUrl = $selectCounter->count_url;
         $idCounter = $selectCounter->id;
@@ -113,7 +113,6 @@ class HomeController extends Controller
 
     public function clicksCount(Request $request)
     {
-
         $url = $request->short_url;
         $selectUrl = Translate::where('new_link', $url)->first();
         if ($selectUrl) {
@@ -124,7 +123,6 @@ class HomeController extends Controller
 
     public function clicksReset(Request $request)
     {
-
         $translate = Translate::find($request->id);
         if ($translate) {
             $translate->clicks = 0;

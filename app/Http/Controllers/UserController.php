@@ -17,7 +17,7 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
            return redirect()->route('painel');
         } else {
-            dd('Erro de login');
+            return back()->with('error', 'Usuário ou senha inválidos.');
         }
     }
 }

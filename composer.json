@@ -32,7 +32,8 @@
         },
         "files": [
             "app/Support/Seo.php",
-            "app/Support/Helpers.php"
+            "app/Support/Helpers.php",
+            "app/Support/IpDetails.php"
         ]
     },
     "autoload-dev": {
