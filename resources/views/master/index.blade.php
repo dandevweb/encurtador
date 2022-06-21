@@ -38,17 +38,8 @@ if (isset($_POST['action']) && !empty($_POST['url_converter'])) {
                     <img src="<?= $img ?>" alt="Dog Image">
                 </div>
             </div>
-            @if (session('success'))
-                {{ alert('success', session('success')) }}
-            @endif
 
-            @if (session('error'))
-                {{ alert('error', session('error')) }}
-            @endif
-
-            @if (session('warning'))
-                {{ alert('warning', session('warning')) }}
-            @endif
+            @include('master.components.alerts')
 
             @yield('content')
 

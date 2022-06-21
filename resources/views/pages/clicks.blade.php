@@ -28,4 +28,5 @@
                 </form>
             </div>
         @endisset
-    @endsection
+    </div>
+@endsection
