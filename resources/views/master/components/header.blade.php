@@ -15,13 +15,14 @@
                     <a class="nav-link" href="{{ route('url.clicks') }}">Minha Url</a>
                 </li>
             </ul>
-            <?php
-        if (isset($_SESSION['login'])) {
-            ?>
-            <span class="navbar-text">
-                <a class="nav-link" href="<?= INCLUDE_PATH_PANEL ?>?logout">Sair</a>
-            </span>
-            <?php } ?>
+            @if (Auth::user())
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <span class="navbar-text">
+                        <button class="nav-link bg-light border-0" type="submit">Sair</button>
+                    </span>
+                </form>
+            @endif
         </div>
     </nav>
 </header>

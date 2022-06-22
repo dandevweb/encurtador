@@ -1,16 +1,3 @@
-<?php
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-}
-$img = asset('assets/img/dog.png');
-if (isset($_POST['action']) && !empty($_POST['url_converter'])) {
-    $img = asset('assets/img/dog-puppy.png');
-}
-?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -35,7 +22,7 @@ if (isset($_POST['action']) && !empty($_POST['url_converter'])) {
         <div class="row form">
             <div class="col-md-4" style="padding: 0;">
                 <div class="container-img">
-                    <img src="<?= $img ?>" alt="Dog Image">
+                    <img src="{{ session('img') ?? asset('assets/img/dog.png') }}" alt="Dog Image">
                 </div>
             </div>
 
@@ -64,7 +51,7 @@ if (isset($_POST['action']) && !empty($_POST['url_converter'])) {
                 <div class="card-body">
                     <h4 class="card-title">Monitore em tempo real.</h4>
                     <p class="card-text">Com a ferramenta <a target="_blank" internal
-                            href="{{ url('/') }}url">mynew.link </a>você também consegue monitorar a quantidades
+                            href="{{ route('home') }}">mynew.link </a>você também consegue monitorar a quantidades
                         de cliques e visitas que
                         o seu link recebeu. Basta clicar no menu "Minha url" e colar o seu link encurtado.
                     <p>

@@ -23,4 +23,7 @@ Route::post('login', [UserController::class, 'login'])->name('login');
 
 Route::get('painel', [DashboardController::class, 'index'])->middleware('auth')->name('painel');
 
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
+
+//Deve ficar no final para não conflitar com as rotas acima
 Route::get('{uri}', [RedirectController::class, 'index'])->name('url.redirect');
