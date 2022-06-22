@@ -19,6 +19,8 @@ class HomeController extends Controller
             asset('assets/img/meta.png')
         );
 
+
+
         return view('pages.home', compact(
             'head'
         ));
@@ -93,7 +95,8 @@ class HomeController extends Controller
                 $translate->save();
             }
             $insert = true;
-            return back()->with(['insert' => $insert, 'new_url' => $new_url]);
+            $img = asset('assets/img/dog-puppy.png');
+            return back()->with(['insert' => $insert, 'new_url' => $new_url, 'img' => $img]);
         }
 
     }
