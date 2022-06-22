@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - stop
 name: 🚀 Deploy Auto
 jobs:
   web-deploy:
