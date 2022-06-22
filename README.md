@@ -5,8 +5,8 @@
 
 ** Informações **
 
-    Encurtador de URLs criado com Laravel.
-    Encurta URL e mostra a quantidade de clicks para a URL encurtada.
+Encurtador de URLs criado com Laravel.
+Encurta URL e mostra a quantidade de clicks para a URL encurtada.
 
 
 
