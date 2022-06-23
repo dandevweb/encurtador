@@ -5,6 +5,8 @@
 
     {!! $head ?? '' !!}
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="{{ asset('assets/img/dog-puppy.png') }}" />
 
     <!--Fontawesome-->
@@ -34,7 +36,7 @@
         </div>
         <!-- /.row -->
         <div class="description m-3 row">
-            <div class="card text-left col-md-3 m-5">
+            <div class="card text-left col-md-3 m-1 m-md-5">
                 <div class="card-body">
                     <h4 class="card-title">Encurte seus links de maneira simples.</h4>
                     <p class="card-text">Aqui você encontra uma ferramenta gratuita para encurtar URLs como: links de
@@ -47,7 +49,7 @@
                     </p>
                 </div>
             </div>
-            <div class="card text-left col-md-3 m-5">
+            <div class="card text-left col-md-3 m-1  m-md-5">
                 <div class="card-body">
                     <h4 class="card-title">Monitore em tempo real.</h4>
                     <p class="card-text">Com a ferramenta <a target="_blank" internal
@@ -57,7 +59,7 @@
                     <p>
                 </div>
             </div>
-            <div class="card text-left col-md-3 m-5">
+            <div class="card text-left col-md-3 m-1  m-md-5">
                 <div class="card-body">
                     <h4 class="card-title">URLs personalizadas.</h4>
                     <p class="card-text">Com nossa ferramenta também é possível criar links personalizados, basta
