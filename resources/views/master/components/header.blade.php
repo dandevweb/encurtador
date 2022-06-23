@@ -16,6 +16,8 @@
                 </li>
             </ul>
             @if (Auth::user())
+                <a class="nav-link" href="{{ route('painel') }}">Painel</a>
+
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <span class="navbar-text">
