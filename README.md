@@ -3,7 +3,7 @@
 [Link do Projeto em Produção](https://mynew.link/)
 
 
-** Informações **
+**Informações**
 
 Encurtador de URLs criado com Laravel.
 Encurta URL e mostra a quantidade de clicks para a URL encurtada.
